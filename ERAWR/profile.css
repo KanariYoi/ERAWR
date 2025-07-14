@@ -1,0 +1,121 @@
+/* Profile Page Specific Styles */
+body.profile-page .main-content {
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+body.profile-page .left-section {
+  align-items: flex-start;
+  padding-top: 20px;
+  min-width: 588px;
+  max-width: 1200px;
+  width: 45.5%;
+  background-color: #ffffff;
+}
+body.profile-page .left-section > div {
+  width: 180px;
+  height: 180px;
+  background: #343636;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px auto;
+}
+body.profile-page .left-section > div img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+}
+body.profile-page .left-section ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+body.profile-page .left-section li {
+  margin-bottom: 24px;
+}
+body.profile-page .left-section li span {
+  font-weight: 600;
+  color: #343636;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+}
+body.profile-page .left-section li:first-child span {
+  font-weight: 700;
+  opacity: 1;
+}
+body.profile-page .left-section li span span {
+  font-size: 1.5rem;
+  margin-right: 12px;
+}
+body.profile-page .left-section li:last-child span {
+  cursor: pointer;
+}
+body.profile-page .right-section {
+  background: #343636;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+body.profile-page .right-section > div {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.18);
+  padding: 24px 24px 20px 24px;
+  width: 100%;
+  max-width: 480px;
+  min-width: 320px;
+}
+body.profile-page .right-section > div > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+body.profile-page .right-section > div > div img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 18px;
+}
+#profile-username {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #343636;
+}
+#profile-email {
+  font-size: 1rem;
+  color: #343636;
+  opacity: 0.8;
+}
+#profile-form {
+  margin-top: 12px;
+}
+#notification {
+  display: none;
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 9999;
+  background: rgba(35, 35, 35, 0.85);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+@media (min-width: 1367px) {
+  body.profile-page .left-section {
+    width: 68.259%;
+    margin-left: 60px;
+    max-width: none;
+  }
+} 

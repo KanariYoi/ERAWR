@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kick N' Klean</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Main.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./images/Icon - Final.png" alt="Kick N' Klean Logo" />
+      </div>
+      <nav>
+        <a href="Main.html" class="home-link active">Home</a>
+        <a href="Services.html" class="services-link">Services</a>
+        <a href="faqs.html" class="faqs-link">FAQs</a>
+        <a href="about.html" class="about-link">About Us</a>
+      </nav>
+      <div class="header-icons">
+        <a href="#" class="cart-icon">
+          <img src="./images/cart.png" alt="Cart" />
+        </a>
+        <a href="#" class="menu-icon">
+          <img src="./images/icon.png" alt="Menu" />
+        </a>
+        <a href="#" class="user-icon" id="user-icon">
+          <img src="./images/user.PNG" alt="User" />
+        </a>
+        <span id="user-info" style="margin-left: 8px"></span>
+      </div>
+    </header>
+    <div class="header-spacer"></div>
+
+    <main class="main-content">
+      <div class="left-section">
+        <h1>YOUR DIRTY<br />SHOE SOLUTION</h1>
+        <p>
+          At Kick N' Klean, we believe every pair<br />
+          deserves a second chance. Let your kicks<br />
+          speak clean!
+        </p>
+        <button class="btn">View Pricing Guide</button>
+        <!-- HERO SOCIALS -->
+        <div class="socials">
+          <a
+            href="https://www.facebook.com/kicknklean.ph"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="./images/fb.png" alt="Facebook" />
+          </a>
+          <a
+            href="https://www.instagram.com/kicknklean.ph/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="./images/ig.png" alt="Instagram" />
+          </a>
+          <a href="mailto:contact@kicknklean.com">
+            <img src="./images/mail.png" alt="Email" />
+          </a>
+          <a href="tel:+1234567890">
+            <img src="./images/contatc.png" alt="Phone" />
+          </a>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <div class="placeholder-image">
+          <img src="./images/shoe.png" alt="Shoe" />
+        </div>
+      </div>
+    </main>
+
+    <section class="new-section">
+      <p>Not sure what your shoes are made of? Don't Worry!</p>
+      <h1>SHOE MATERIALS</h1>
+
+      <div class="materials-container">
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/suede.png" alt="Suede" />
+          </div>
+          <p>Suede</p>
+        </div>
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/nubuck.png" alt="Nubuck" />
+          </div>
+          <p>Nubuck</p>
+        </div>
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/multi-material.png" alt="Multi-material" />
+          </div>
+          <p>Multi-material</p>
+        </div>
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/leather.png" alt="Leather" />
+          </div>
+          <p>Leather</p>
+        </div>
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/flyknit.png" alt="Flyknit" />
+          </div>
+          <p>Flyknit</p>
+        </div>
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/canvas.png" alt="Canvas" />
+          </div>
+          <p>Canvas</p>
+        </div>
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/mesh.png" alt="Mesh" />
+          </div>
+          <p>Mesh</p>
+        </div>
+        <div class="material-box">
+          <div class="material-image">
+            <img src="./images/eva-foam.png" alt="EVA Foam" />
+          </div>
+          <p>EVA Foam</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Services Section -->
+    <section class="main-services-section">
+      <h1 class="main-services-header">Main Services</h1>
+      <div class="main-services-boxes">
+        <div class="service-box">
+          <img
+            src="./images/basic-cleaning.png"
+            alt="Basic Cleaning"
+            class="service-img"
+          />
+        </div>
+        <div class="service-box">
+          <img
+            src="./images/deep-cleaning.png"
+            alt="Deep Cleaning"
+            class="service-img"
+          />
+        </div>
+        <div class="service-box">
+          <img
+            src="./images/suede-and-nubuck.png"
+            alt="Suede and Nubuck Care"
+            class="service-img"
+          />
+        </div>
+      </div>
+      <div class="main-services-descriptions">
+        <p class="service-placeholder">
+          <strong>Basic Cleaning</strong> is ideal for regular upkeep and
+          perfect for keeping your everyday sneakers fresh.
+        </p>
+        <div style="display: flex; flex-direction: column; align-items: center">
+          <p class="service-placeholder">
+            <strong>Deep Cleaning</strong> reaches every corner of your shoes,
+            inside and out, tackling tough stains and odors.
+          </p>
+          <span class="choose-care-note"
+            >Choose the right care for your kicks!</span
+          >
+        </div>
+        <p class="service-placeholder">
+          <strong>Suede and Nubuck Care</strong> uses specialized techniques to
+          gently clean and preserve delicate materials.
+        </p>
+      </div>
+    </section>
+    <hr class="main-services-bottom-spacer" />
+
+    <!-- Care Guides Section -->
+    <section class="care-guides-section" id="care-guides">
+      <h1 class="care-guides-header">CARE GUIDES</h1>
+      <p class="care-guides-subtitle">
+        Discover helpful tips and advice for keeping your shoes in top
+        condition.
+      </p>
+      <div class="care-guides-cards">
+        <div class="care-guide-card">
+          <img
+            src="./images/bp_1.jpg"
+            alt="Shoe Care 101"
+            class="care-guide-img"
+          />
+          <h2 class="care-guide-title">
+            Shoe Care 101: Easy Tips to Make Your Shoes Last Longer
+          </h2>
+          <a href="#" class="care-guide-link">Read more</a>
+        </div>
+        <div class="care-guide-card">
+          <img
+            src="./images/bp_2.jpeg"
+            alt="Why You Shouldn't Ignore Dirty Shoes"
+            class="care-guide-img"
+          />
+          <h2 class="care-guide-title">
+            Why You Shouldn't Ignore Dirty Shoes (And How to Clean Them Right)
+          </h2>
+          <a href="#" class="care-guide-link">Read more</a>
+        </div>
+        <div class="care-guide-card">
+          <img
+            src="./images/bp_3.jpg"
+            alt="Beginner's Guide to Keeping Your Shoes Smelling Fresh and Looking New"
+            class="care-guide-img"
+          />
+          <h2 class="care-guide-title">
+            Beginner's Guide to Keeping Your Shoes Smelling Fresh and Looking
+            New
+          </h2>
+          <a href="#" class="care-guide-link">Read more</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Side Menu Overlay and Menu moved back outside right-section -->
+    <div id="sideMenuOverlay" class="side-menu-overlay"></div>
+    <nav id="sideMenu" class="side-menu">
+      <ul class="side-menu-list">
+        <li>
+          <hr class="side-menu-divider" />
+          <a href="Main.html">Home</a>
+        </li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li>
+          <a href="Main.html#care-guides">Care Guides</a>
+          <hr class="side-menu-divider" />
+        </li>
+      </ul>
+      <div class="side-menu-socials">
+        <a
+          href="https://www.facebook.com/kicknklean.ph"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="./images/fb_gray.png" alt="Facebook" />
+        </a>
+        <a
+          href="https://www.instagram.com/kicknklean.ph/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="./images/ig_gray.png" alt="Instagram" />
+        </a>
+        <a href="mailto:contact@kicknklean.com">
+          <img src="./images/mail_gray.png" alt="Email" />
+        </a>
+        <a href="+1234567890">
+          <img src="./images/contact_gray.png" alt="Contact" />
+        </a>
+      </div>
+    </nav>
+    <script src="menu.js"></script>
+
+    <!-- User Account Modal -->
+    <div id="accountModal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <button class="modal-close" id="closeAccountModal" aria-label="Close">
+          &times;
+        </button>
+        <h2 class="modal-title">Create account</h2>
+        <p class="modal-subtitle">Sign up. Stay fresh. Repeat.</p>
+        <button class="modal-btn google-btn" id="google-login-btn">
+          <img src="images/google.jfif" alt="Google" class="modal-btn-icon" />
+          Sign up with Google
+        </button>
+        <button class="modal-btn facebook-btn" id="facebook-login-btn">
+          <img src="images/fb.png" alt="Facebook" class="modal-btn-icon" />
+          Sign up with Facebook
+        </button>
+        <div class="modal-divider"><span>OR</span></div>
+        <form class="modal-form">
+          <label for="modal-email" class="modal-label">Email</label>
+          <input
+            type="email"
+            id="modal-email"
+            class="modal-input"
+            placeholder="Email"
+            required
+          />
+          <label for="modal-password" class="modal-label">Password</label>
+          <div class="modal-password-wrapper">
+            <input
+              type="password"
+              id="modal-password"
+              class="modal-input"
+              placeholder="Password"
+              required
+            />
+            <button
+              type="button"
+              class="modal-password-toggle"
+              tabindex="-1"
+              aria-label="Show password"
+            >
+              &#128065;
+            </button>
+          </div>
+          <button type="submit" class="modal-submit">Create Account</button>
+        </form>
+        <p class="modal-login-link">
+          Already have an account? <a href="#" id="showLoginModal">Log in</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal-overlay" style="display: none">
+      <div class="modal-content login-modal-content">
+        <button class="modal-close" id="closeLoginModal" aria-label="Close">
+          &times;
+        </button>
+        <h2 class="modal-title">Log in</h2>
+        <form class="modal-form">
+          <label for="login-identifier" class="modal-label"
+            >Username/Email</label
+          >
+          <input
+            type="text"
+            id="login-identifier"
+            class="modal-input"
+            placeholder="Username or Email"
+            required
+          />
+          <label for="login-password" class="modal-label">Password</label>
+          <div class="modal-password-wrapper">
+            <input
+              type="password"
+              id="login-password"
+              class="modal-input"
+              placeholder="Password"
+              required
+            />
+            <button
+              type="button"
+              class="modal-password-toggle"
+              tabindex="-1"
+              aria-label="Show password"
+            >
+              &#128065;
+            </button>
+          </div>
+          <button type="submit" class="modal-submit">Enter</button>
+        </form>
+        <p class="modal-login-link">
+          Don't have an account? <a href="#" id="showRegisterModal">Register</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+      <div class="footer-main">
+        <div class="footer-col footer-col-left">
+          <div class="footer-logo-menu-row">
+            <img
+              src="./images/logo-light.png"
+              alt="Kick N' Klean Logo"
+              class="footer-logo"
+            />
+            <div class="footer-menu">
+              <div class="footer-menu-title">MAIN MENU</div>
+              <a href="Main.html" class="footer-menu-link">HOME</a>
+              <a href="Services.html" class="footer-menu-link">SERVICES</a>
+              <a href="faqs.html" class="footer-menu-link">FAQs</a>
+              <a href="about.html" class="footer-menu-link">ABOUT US</a>
+              <a href="Main.html#care-guides" class="footer-menu-link"
+                >CARE GUIDES</a
+              >
+            </div>
+          </div>
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/kicknklean.ph"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="./images/fb_gray.png" alt="Facebook" />
+            </a>
+            <a
+              href="https://www.instagram.com/kicknklean.ph/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="./images/ig_gray.png" alt="Instagram" />
+            </a>
+            <a href="mailto:contact@kicknklean.com">
+              <img src="./images/mail_gray.png" alt="Email" />
+            </a>
+            <a href="+1234567890">
+              <img src="./images/contact_gray.png" alt="Contact" />
+            </a>
+          </div>
+        </div>
+        <div class="footer-col footer-col-center">
+          <div class="footer-news-title">STAY ON THE LOOP</div>
+          <div class="footer-news-desc">
+            Don't miss out on exclusive promos, cleaning freebies, and tips to
+            step up your shoe care game.
+          </div>
+          <form class="footer-news-form">
+            <span class="footer-news-icon"
+              ><img src="./images/mail.png" alt="Email Icon"
+            /></span>
+            <input type="email" placeholder="Enter your email" />
+          </form>
+        </div>
+        <div class="footer-col footer-col-right">
+          <div class="footer-contact-title">GET IN TOUCH WITH US</div>
+          <div class="footer-contact-desc">
+            Need help choosing the right care for your shoes? Contact us at
+            <span class="footer-contact-email">kicknklean.ph@gmail.com</span>
+            for personalized assistance.
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">EST. 2025 – KICK N' KLEAN™</div>
+    </footer>
+
+    <div id="editUserModal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <button class="modal-close" id="closeEditUserModal" aria-label="Close">
+          &times;
+        </button>
+        <h2 class="modal-title">Edit Profile</h2>
+        <form id="edit-user-form" class="modal-form">
+          <label for="edit-username" class="modal-label">Username</label>
+          <input type="text" id="edit-username" class="modal-input" required />
+          <label for="edit-email" class="modal-label">Email</label>
+          <input type="email" id="edit-email" class="modal-input" required />
+          <button type="submit" class="modal-submit">Save Changes</button>
+        </form>
+        <hr />
+        <h3>Change Password</h3>
+        <form id="change-password-form" class="modal-form">
+          <label for="old-password" class="modal-label">Old Password</label>
+          <input
+            type="password"
+            id="old-password"
+            class="modal-input"
+            required
+          />
+          <label for="new-password" class="modal-label">New Password</label>
+          <input
+            type="password"
+            id="new-password"
+            class="modal-input"
+            required
+          />
+          <button type="submit" class="modal-submit">Change Password</button>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="notification"
+      style="
+        display: none;
+        position: fixed;
+        top: 32px;
+        right: 32px;
+        z-index: 9999;
+        background: rgba(35, 35, 35, 0.85);
+        color: #fff;
+        padding: 16px 32px;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+      "
+    ></div>
+
+    <script src="account.js"></script>
+    <script src="shared-cart.js"></script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
+    <!-- Pricing Guide Modal -->
+    <div id="pricingGuideModal" class="modal" style="display: none">
+      <span class="close" id="closePricingModal">&times;</span>
+      <div class="modal-images">
+        <img
+          class="modal-content"
+          src="./images/6e27912a-eca1-4d44-985d-15f4ce5585c4.jfif"
+          alt="Pricing Guide 1"
+          style="
+            max-width: 90vw;
+            max-height: 70vh;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.18);
+          "
+        />
+        <img
+          class="modal-content"
+          src="./images/a3b33726-875a-43ea-945c-df70b3deaf4c.jfif"
+          alt="Pricing Guide 2"
+          style="
+            max-width: 90vw;
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.18);
+          "
+        />
+      </div>
+    </div>
+    <style>
+      .modal {
+        display: block;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 1;
+        transition: none;
+        animation: none;
+        padding: 0;
+      }
+      .modal.show {
+        display: block;
+      }
+      .modal-images {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.18);
+        padding: 32px 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        max-width: 800px;
+        width: 95vw;
+        margin: 0;
+      }
+      .modal-content {
+        margin: 0;
+        display: block;
+        max-width: 350px;
+        width: 100%;
+        max-height: 60vh;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.1);
+        object-fit: contain;
+        background: #fff;
+      }
+      .close {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10001;
+        transition: color 0.2s;
+      }
+      .close:hover {
+        color: #ffb300;
+      }
+      @media (max-width: 900px) {
+        .modal-images {
+          flex-direction: column;
+          max-width: 98vw;
+          padding: 16px 4px;
+        }
+        .modal-content {
+          max-width: 95vw;
+          max-height: 40vh;
+        }
+        .close {
+          top: 10px;
+          right: 20px;
+          font-size: 32px;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var modal = document.getElementById("pricingGuideModal");
+        var btn = document.querySelector(".btn");
+        var span = document.getElementById("closePricingModal");
+        function showModal() {
+          modal.classList.add("show");
+        }
+        function hideModal() {
+          modal.classList.remove("show");
+          setTimeout(function () {
+            modal.style.display = "none";
+          }, 300);
+        }
+        if (btn) {
+          btn.onclick = function () {
+            modal.style.display = "block";
+            setTimeout(showModal, 10);
+          };
+        }
+        span.onclick = function () {
+          hideModal();
+        };
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            hideModal();
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

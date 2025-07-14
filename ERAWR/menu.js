@@ -3,10 +3,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const sideMenu = document.getElementById('sideMenu');
   const sideMenuOverlay = document.getElementById('sideMenuOverlay');
   const header = document.querySelector('header');
+  const headerSpacer = document.querySelector('.header-spacer');
 
   // Hide menu by default
   sideMenu.classList.remove('open');
   sideMenuOverlay.classList.remove('open');
+
+  function isLoggedIn() {
+    const token = localStorage.getItem('access');
+    const userInfo = document.getElementById('user-info');
+    return !!token && userInfo && userInfo.textContent.trim() !== '';
+  }
+
+
 
   menuIcon.addEventListener('click', function (event) {
     event.preventDefault();
@@ -15,16 +24,19 @@ document.addEventListener('DOMContentLoaded', function () {
       sideMenu.classList.remove('open');
       sideMenuOverlay.classList.remove('open');
       header.classList.remove('dimmed');
+      if (headerSpacer) headerSpacer.classList.remove('hide-when-menu');
     } else {
       sideMenu.classList.add('open');
       sideMenuOverlay.classList.add('open');
       header.classList.add('dimmed');
+      if (headerSpacer) headerSpacer.classList.add('hide-when-menu');
     }
   });
   sideMenuOverlay.addEventListener('click', function () {
     sideMenu.classList.remove('open');
     sideMenuOverlay.classList.remove('open');
     header.classList.remove('dimmed');
+    if (headerSpacer) headerSpacer.classList.remove('hide-when-menu');
   });
 
 
@@ -52,9 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const showRegisterModal = document.getElementById('showRegisterModal');
 
   function openModal() {
+    // Close any other modals first
+    if (loginModal) loginModal.style.display = 'none';
+    if (editUserModal) editUserModal.style.display = 'none';
+    
     accountModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     document.body.classList.add('modal-blur');
+    document.documentElement.classList.add('modal-blur');
     accountModal.classList.add('modal-fade-in');
     accountModal.querySelector('.modal-content').classList.add('modal-fade-in');
   }
@@ -64,11 +81,17 @@ document.addEventListener('DOMContentLoaded', function () {
     accountModal.style.display = 'none';
     document.body.style.overflow = '';
     document.body.classList.remove('modal-blur');
+    document.documentElement.classList.remove('modal-blur');
   }
   function openLoginModal() {
+    // Close any other modals first
+    if (accountModal) accountModal.style.display = 'none';
+    if (editUserModal) editUserModal.style.display = 'none';
+    
     loginModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     document.body.classList.add('modal-blur');
+    document.documentElement.classList.add('modal-blur');
     loginModal.classList.add('modal-fade-in');
     loginModal.querySelector('.modal-content').classList.add('modal-fade-in');
   }
@@ -78,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loginModal.style.display = 'none';
     document.body.style.overflow = '';
     document.body.classList.remove('modal-blur');
+    document.documentElement.classList.remove('modal-blur');
   }
 
   if (userIcon) {
@@ -95,6 +119,24 @@ document.addEventListener('DOMContentLoaded', function () {
   if (modalOverlay) {
     modalOverlay.addEventListener('click', function (e) {
       if (e.target === modalOverlay) closeModal();
+    });
+  }
+  
+  // Close login modal when clicking on the blurry background
+  if (loginModal) {
+    loginModal.addEventListener('click', function (e) {
+      if (e.target === loginModal) {
+        closeLogin();
+      }
+    });
+  }
+  
+  // Close account modal when clicking on the blurry background
+  if (accountModal) {
+    accountModal.addEventListener('click', function (e) {
+      if (e.target === accountModal) {
+        closeModal();
+      }
     });
   }
   if (passwordToggle && passwordInput) {

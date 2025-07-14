@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart Test | Kick N' Klean</title>
+  <link rel="stylesheet" href="Main.css" />
+  <link rel="stylesheet" href="cart-modal.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="./images/Icon - Final.png" alt="Kick N' Klean Logo" />
+    </div>
+    <nav>
+      <a href="Main.html" class="home-link">Home</a>
+      <a href="Services.html" class="services-link">Services</a>
+      <a href="faqs.html" class="faqs-link">FAQs</a>
+      <a href="about.html" class="about-link">About Us</a>
+    </nav>
+    <div class="header-icons">
+      <a href="#" class="cart-icon">
+        <img src="./images/cart.png" alt="Cart" />
+      </a>
+      <a href="#" class="menu-icon">
+        <img src="./images/icon.png" alt="Menu" />
+      </a>
+      <a href="#" class="user-icon" id="user-icon">
+        <img src="./images/user.PNG" alt="User" />
+      </a>
+      <span id="user-info" style="margin-left: 8px"></span>
+    </div>
+  </header>
+  <div class="header-spacer"></div>
+
+  <main class="main-content">
+    <div style="padding: 40px; text-align: center;">
+      <h1>Cart Functionality Test</h1>
+      <p>This page tests the cart functionality across all pages.</p>
+      
+      <div style="margin: 40px 0;">
+        <h2>Test Cart Operations</h2>
+        <button onclick="testAddService()" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Add Test Service
+        </button>
+        <button onclick="testAddAddon()" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Add Test Addon
+        </button>
+        <button onclick="testClearCart()" style="margin: 10px; padding: 10px 20px; background: #c00; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Clear Cart
+        </button>
+        <button onclick="testLogin()" style="margin: 10px; padding: 10px 20px; background: #0066cc; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Simulate Login
+        </button>
+        <button onclick="testLogout()" style="margin: 10px; padding: 10px 20px; background: #666; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Simulate Logout
+        </button>
+      </div>
+      
+      <div style="margin: 40px 0;">
+        <h2>Navigation Test</h2>
+        <p>Navigate to other pages to test cart persistence:</p>
+        <a href="Main.html" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; text-decoration: none; border-radius: 5px; display: inline-block;">
+          Go to Main
+        </a>
+        <a href="Services.html" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; text-decoration: none; border-radius: 5px; display: inline-block;">
+          Go to Services
+        </a>
+        <a href="about.html" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; text-decoration: none; border-radius: 5px; display: inline-block;">
+          Go to About
+        </a>
+        <a href="faqs.html" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; text-decoration: none; border-radius: 5px; display: inline-block;">
+          Go to FAQs
+        </a>
+      </div>
+      
+      <div style="margin: 40px 0;">
+        <h2>Current Cart Status</h2>
+        <div id="cart-status" style="background: #f5f5f5; padding: 20px; border-radius: 10px; text-align: left; max-width: 600px; margin: 0 auto;">
+          Loading...
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="shared-cart.js"></script>
+  <script>
+    // Test functions
+    function testAddService() {
+      if (typeof window.addToCart === 'function') {
+        window.addToCart('service', {
+          id: 'test-service-' + Date.now(),
+          name: 'Test Service',
+          price: 150,
+          description: 'This is a test service'
+        });
+        updateCartStatus();
+      } else {
+        alert('addToCart function not available');
+      }
+    }
+    
+    function testAddAddon() {
+      if (typeof window.addToCart === 'function') {
+        window.addToCart('addon', {
+          id: 'test-addon-' + Date.now(),
+          name: 'Test Addon',
+          price: 50,
+          description: 'This is a test addon'
+        });
+        updateCartStatus();
+      } else {
+        alert('addToCart function not available');
+      }
+    }
+    
+    function testClearCart() {
+      if (typeof window.clearCart === 'function') {
+        window.clearCart();
+        updateCartStatus();
+      } else {
+        alert('clearCart function not available');
+      }
+    }
+    
+    function testLogin() {
+      localStorage.setItem('access', 'test-token');
+      localStorage.setItem('current_user_id', 'test-user');
+      if (typeof window.handleUserLogin === 'function') {
+        window.handleUserLogin('test-user');
+      }
+      updateCartStatus();
+      alert('Logged in as test user');
+    }
+    
+    function testLogout() {
+      localStorage.removeItem('access');
+      localStorage.removeItem('current_user_id');
+      if (typeof window.handleUserLogout === 'function') {
+        window.handleUserLogout();
+      }
+      updateCartStatus();
+      alert('Logged out');
+    }
+    
+    function updateCartStatus() {
+      const statusDiv = document.getElementById('cart-status');
+      const cart = window.getCart ? window.getCart() : { services: [], addons: [] };
+      const isLoggedIn = window.isUserLoggedIn ? window.isUserLoggedIn() : false;
+      const userId = window.getCurrentUserId ? window.getCurrentUserId() : null;
+      
+      let status = `
+        <strong>Login Status:</strong> ${isLoggedIn ? 'Logged In' : 'Not Logged In'}<br>
+        <strong>User ID:</strong> ${userId || 'None'}<br>
+        <strong>Cart Key:</strong> ${window.getCartKey ? window.getCartKey() : 'None'}<br>
+        <strong>Services in Cart:</strong> ${cart.services.length}<br>
+        <strong>Addons in Cart:</strong> ${cart.addons.length}<br>
+        <strong>Total Items:</strong> ${cart.services.length + cart.addons.length}<br>
+        <br>
+        <strong>Cart Contents:</strong><br>
+      `;
+      
+      if (cart.services.length > 0) {
+        status += '<strong>Services:</strong><br>';
+        cart.services.forEach(item => {
+          status += `- ${item.name} (Qty: ${item.qty}, Price: ₱${item.price})<br>`;
+        });
+      }
+      
+      if (cart.addons.length > 0) {
+        status += '<strong>Addons:</strong><br>';
+        cart.addons.forEach(item => {
+          status += `- ${item.name} (Qty: ${item.qty}, Price: ₱${item.price})<br>`;
+        });
+      }
+      
+      if (cart.services.length === 0 && cart.addons.length === 0) {
+        status += 'Cart is empty';
+      }
+      
+      statusDiv.innerHTML = status;
+    }
+    
+    // Update status on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartStatus();
+      // Update status every 2 seconds
+      setInterval(updateCartStatus, 2000);
+    });
+  </script>
+</body>
+</html> 
