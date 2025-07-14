@@ -430,7 +430,7 @@ function autofillCheckoutForm() {
   const token = localStorage.getItem('access');
   if (!token) return;
   
-  fetch('http://127.0.0.1:8000/api/profile/', {
+  fetch(`${window.API_BASE_URL}/api/profile/`, {
     headers: { 'Authorization': 'Bearer ' + token }
   })
   .then(res => res.json())
@@ -520,7 +520,7 @@ function handleOrderConfirmation() {
   };
   
   // Submit order
-  fetch('http://127.0.0.1:8000/api/orders/', {
+  fetch(`${window.API_BASE_URL}/api/profile/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
