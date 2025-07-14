@@ -103,20 +103,20 @@ async function fetchAndRenderServices() {
       const serviceRow = document.createElement('div');
       serviceRow.className = 'service-row';
       serviceRow.innerHTML = `
-        <div class="service-icon">
-          <img src="${iconSrc}" alt="${service.name || ''}" />
-        </div>
-        <div class="service-info">
-          <h3 class="service-title">${service.name ? service.name.toUpperCase() : ''}</h3>
-          <p class="service-desc">${service.description || ''}</p>
-        </div>
-        <button class="add-cart-btn" 
-          data-service-id="${service.id ?? ''}" 
-          data-service-name="${service.name ?? ''}" 
-          data-service-price="${service.price ?? ''}">
-          ADD TO KLEAN CART
-        </button>
-      `;
+<div class="service-icon">
+  <img src="${iconSrc}" alt="${service.name || ''}" />
+</div>
+<div class="service-info">
+  <h3 class="service-title">${service.name ? service.name.toUpperCase() : ''}</h3>
+  <p class="service-desc">${service.description || ''}</p>
+</div>
+<button class="add-cart-btn" 
+  data-service-id="${service.id ?? ''}" 
+  data-service-name="${service.name ?? ''}" 
+  data-service-price="${service.price ?? ''}">
+  ADD TO KLEAN CART
+</button>
+`;
       servicesList.appendChild(serviceRow);
       if (index === 2 && services.length > 3) {
         const divider = document.createElement('hr');
@@ -142,15 +142,15 @@ async function fetchAndRenderAddons() {
     addons.forEach(addon => {
       const addonItem = document.createElement('li');
       addonItem.innerHTML = `
-        <span class="bullet-title"><span class="bullet">•</span> <b>${addon.name ? addon.name.toUpperCase() : ''}</b></span><br />
-        ${addon.description || ''}
-        <button class="add-btn" 
-          data-addon-id="${addon.id ?? ''}" 
-          data-addon-name="${addon.name ?? ''}" 
-          data-addon-price="${addon.price ?? ''}">
-          ADD
-        </button>
-      `;
+<span class="bullet-title"><span class="bullet">•</span> <b>${addon.name ? addon.name.toUpperCase() : ''}</b></span><br />
+${addon.description || ''}
+<button class="add-btn" 
+  data-addon-id="${addon.id ?? ''}" 
+  data-addon-name="${addon.name ?? ''}" 
+  data-addon-price="${addon.price ?? ''}">
+  ADD
+</button>
+`;
       addonsList.appendChild(addonItem);
     });
   } catch (error) {
@@ -171,15 +171,15 @@ async function fetchAndRenderEssentials() {
     bundles.forEach(bundle => {
       const essentialItem = document.createElement('li');
       essentialItem.innerHTML = `
-        <span class="bullet-title"><span class="bullet">•</span> <b>${bundle.name ? bundle.name.toUpperCase() : ''}</b></span><br />
-        ${bundle.description || ''}
-        <button class="add-btn" 
-          data-bundle-id="${bundle.id ?? ''}" 
-          data-bundle-name="${bundle.name ?? ''}" 
-          data-bundle-price="${bundle.price ?? ''}">
-          ADD
-        </button>
-      `;
+<span class="bullet-title"><span class="bullet">•</span> <b>${bundle.name ? bundle.name.toUpperCase() : ''}</b></span><br />
+${bundle.description || ''}
+<button class="add-btn" 
+  data-bundle-id="${bundle.id ?? ''}" 
+  data-bundle-name="${bundle.name ?? ''}" 
+  data-bundle-price="${bundle.price ?? ''}">
+  ADD
+</button>
+`;
       essentialsList.appendChild(essentialItem);
     });
   } catch (error) {
