@@ -3,7 +3,7 @@ function showUserUIOnHeader() {
   const userInfo = document.getElementById("user-info");
   const token = localStorage.getItem("access");
   if (token) {
-    fetch(`${window.API_BASE_URL}/api/profile/", {
+    fetch(`${window.API_BASE_URL}/api/profile/`, {
       headers: { Authorization: "Bearer " + token },
     })
       .then((res) => res.json())
@@ -219,7 +219,7 @@ async function fetchAndRenderAddons() {
 // Fetch and render essentials dynamically (using bundles data)
 async function fetchAndRenderEssentials() {
   try {
-    const response = awaitfetch(`${window.API_BASE_URL}/api/bundles/');
+    const response = await fetch(`${window.API_BASE_URL}/api/bundles/');
     if (!response.ok) {
       throw new Error('Failed to fetch bundles');
     }
