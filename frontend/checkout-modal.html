@@ -1,0 +1,81 @@
+<!-- Checkout Modal -->
+<link rel="stylesheet" href="checkout-modal.css">
+<div id="checkoutModal" class="modal-overlay" style="display: none; z-index: 4000;">
+  <div class="checkout-modal-content" id="checkoutModalContent">
+    <button class="checkout-modal-close" id="closeCheckoutModal" aria-label="Close">&times;</button>
+    <h1 class="checkout-title">Checkout</h1>
+    <div class="checkout-flex">
+      <!-- Left: Billing, Payment, Drop-off -->
+      <div class="checkout-left">
+        <div class="checkout-section">
+          <div class="checkout-label">BILLING DETAILS</div>
+          <div class="checkout-billing-fields">
+            <input type="text" class="checkout-input" placeholder="First Name" id="checkoutFirstName">
+            <input type="text" class="checkout-input" placeholder="Last Name" id="checkoutLastName">
+          </div>
+          <input type="email" class="checkout-input" placeholder="Enter your email" id="checkoutEmail">
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-label">PAYMENT METHOD</div>
+          <div class="checkout-sublabel">How would you like to pay?</div>
+          <div class="checkout-radio-group">
+            <label class="payment-option">
+              <input type="radio" name="checkoutPayment" value="GCash" checked>
+              <span class="payment-label">GCash</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="checkoutPayment" value="Cash">
+              <span class="payment-label">Cash on Drop-off</span>
+            </label>
+          </div>
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-label">DROP-OFF INFO</div>
+          <div class="checkout-dropoff-fields">
+            <div class="date-time-picker">
+              <label for="checkoutDate" class="picker-label">📅 Date</label>
+              <input type="date" class="checkout-input date-input" id="checkoutDate" min="">
+            </div>
+            <div class="date-time-picker">
+              <label for="checkoutTime" class="picker-label">🕐 Time</label>
+              <select class="checkout-input time-input" id="checkoutTime">
+                <option value="">Select Time</option>
+                <option value="09:00">9:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="13:00">1:00 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="15:00">3:00 PM</option>
+                <option value="16:00">4:00 PM</option>
+                <option value="17:00">5:00 PM</option>
+                <option value="18:00">6:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="checkout-address">
+            <span style="font-size:1.2em;vertical-align:middle;">📍</span> Address: 157 T&D Village, Tuktukan, Taguig City
+          </div>
+        </div>
+      </div>
+      <!-- Right: Order Summary -->
+      <div class="checkout-right">
+        <div class="checkout-summary-box">
+          <div class="checkout-summary-title">ORDER SUMMARY</div>
+          <div id="checkoutOrderSummary">
+            <!-- Order summary will be filled dynamically -->
+          </div>
+          <button id="checkoutConfirmBtn" class="checkout-confirm-btn">CONFIRM ORDER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- Order Success Modal -->
+<div id="orderSuccessModal" class="modal-overlay" style="display:none; z-index:4100;">
+  <div class="checkout-modal-content">
+    <h2 style="text-align:center;">Order Placed Successfully!</h2>
+    <p style="text-align:center;">Thank you for your order. A confirmation email has been sent to you.</p>
+    <button id="closeOrderSuccessModal" class="checkout-confirm-btn" style="margin-top:24px;">Close</button>
+  </div>
+</div> 
