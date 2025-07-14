@@ -520,7 +520,7 @@ function handleOrderConfirmation() {
   };
   
   // Submit order
-  fetch(`${window.API_BASE_URL}/api/profile/`, {
+  fetch(`${window.API_BASE_URL}/api/orders/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
