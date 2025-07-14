@@ -32,7 +32,7 @@ if (loginForm) {
     e.preventDefault();
     const identifier = document.getElementById('login-identifier').value;
     const password = document.getElementById('login-password').value;
-    const response = await fetch(`${window.API_BASE_URL}/api/login/', {
+    const response = await fetch(`${window.API_BASE_URL}/api/login/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: identifier, password })
