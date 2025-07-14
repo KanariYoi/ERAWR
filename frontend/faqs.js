@@ -38,7 +38,7 @@ function showUserUIOnHeader() {
   const userInfo = document.getElementById('user-info');
   const token = localStorage.getItem('access');
   if (token) {
-    fetch('http://127.0.0.1:8000/api/profile/', {
+   fetch(`${window.API_BASE_URL}/api/profile/`, {
       headers: { 'Authorization': 'Bearer ' + token }
     })
     .then(res => res.json())
