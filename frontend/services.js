@@ -283,7 +283,7 @@ function initializeCartButtons() {
       
       console.log('Service data:', { serviceId, serviceName, servicePrice });
       
-      if (serviceId && serviceName && servicePrice) {
+      if (serviceId && serviceName && !isNaN(servicePrice)) {
         const serviceData = {
           id: serviceId,
           name: serviceName,
@@ -329,7 +329,7 @@ function initializeCartButtons() {
       
       console.log('Add-on/Bundle data:', { addonId, addonName, addonPrice, bundleId, bundleName, bundlePrice });
       
-      if (addonId && addonName && addonPrice) {
+      if (addonId && addonName && !isNaN(addonPrice)) {
         const addonData = {
           id: addonId,
           name: addonName,
@@ -344,7 +344,7 @@ function initializeCartButtons() {
         } else {
           console.error('addToCart function not found! Shared cart system not loaded.');
         }
-      } else if (bundleId && bundleName && bundlePrice) {
+      } else if (bundleId && bundleName && !isNaN(bundlePrice)) {
         const bundleData = {
           id: bundleId,
           name: bundleName,
