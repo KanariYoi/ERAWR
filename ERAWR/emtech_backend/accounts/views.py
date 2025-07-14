@@ -16,6 +16,10 @@ from django.core.mail import send_mail
 from django.conf import settings
 from datetime import datetime
 import traceback
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the backend API. Try /api/ for API endpoints.")
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()

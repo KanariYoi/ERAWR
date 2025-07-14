@@ -3,7 +3,7 @@ function showUserUIOnHeader() {
   const userInfo = document.getElementById("user-info");
   const token = localStorage.getItem("access");
   if (token) {
-    fetch("http://127.0.0.1:8000/api/profile/", {
+    fetch(`${window.API_BASE_URL}profile/`, {
       headers: { Authorization: "Bearer " + token },
     })
       .then((res) => res.json())
@@ -95,7 +95,7 @@ async function fetchAndRenderServices() {
     console.log('Fetching services from API...');
     
     // Test the API endpoint
-    const testResponse = await fetch('http://127.0.0.1:8000/api/services/');
+    const testResponse = await fetch(`${window.API_BASE_URL}services/`);
     console.log('Response status:', testResponse.status);
     console.log('Response ok:', testResponse.ok);
     
@@ -182,7 +182,7 @@ async function fetchAndRenderServices() {
 // Fetch and render add-ons dynamically
 async function fetchAndRenderAddons() {
   try {
-    const response = await fetch('http://127.0.0.1:8000/api/addons/');
+    const response = await fetch(`${window.API_BASE_URL}addons/`);
     if (!response.ok) {
       throw new Error('Failed to fetch add-ons');
     }
@@ -219,7 +219,7 @@ async function fetchAndRenderAddons() {
 // Fetch and render essentials dynamically (using bundles data)
 async function fetchAndRenderEssentials() {
   try {
-    const response = await fetch('http://127.0.0.1:8000/api/bundles/');
+    const response = await fetch(`${window.API_BASE_URL}bundles/`);
     if (!response.ok) {
       throw new Error('Failed to fetch bundles');
     }

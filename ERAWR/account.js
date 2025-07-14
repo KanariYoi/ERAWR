@@ -9,7 +9,7 @@ if (registerForm) {
     const password = document.getElementById('modal-password').value;
 
     // Send POST request to Django API
-    const response = await fetch('http://127.0.0.1:8000/api/register/', {
+    const response = await fetch(`${window.API_BASE_URL}register/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password })
@@ -32,7 +32,7 @@ if (loginForm) {
     e.preventDefault();
     const identifier = document.getElementById('login-identifier').value;
     const password = document.getElementById('login-password').value;
-    const response = await fetch('http://127.0.0.1:8000/api/login/', {
+    const response = await fetch(`${window.API_BASE_URL}login/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: identifier, password })
@@ -104,7 +104,7 @@ async function fetchProfileAndUpdateUI() {
     return;
   }
   try {
-    const res = await fetch('http://127.0.0.1:8000/api/profile/', {
+    const res = await fetch(`${window.API_BASE_URL}profile/`, {
       headers: { 'Authorization': 'Bearer ' + token }
     });
     if (!res.ok) throw new Error('Unauthorized');
@@ -244,7 +244,7 @@ if (editUserForm) {
     const token = localStorage.getItem('access');
     const username = document.getElementById('edit-username').value;
     const email = document.getElementById('edit-email').value;
-    const res = await fetch('http://127.0.0.1:8000/api/profile/', {
+    const res = await fetch(`${window.API_BASE_URL}profile/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -269,7 +269,7 @@ if (changePasswordForm) {
     const token = localStorage.getItem('access');
     const old_password = document.getElementById('old-password').value;
     const new_password = document.getElementById('new-password').value;
-    const res = await fetch('http://127.0.0.1:8000/api/change-password/', {
+    const res = await fetch(`${window.API_BASE_URL}change-password/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -297,7 +297,7 @@ window.onload = function() {
         client_id: '638521072568-bffpaaibv02vd0dls3hlfihphaeo0ts3.apps.googleusercontent.com', // <-- Replace with your real client ID
         callback: async function(response) {
 
-          const res = await fetch('http://127.0.0.1:8000/dj-rest-auth/google/', {
+          const res = await fetch(`${window.API_BASE_URL}dj-rest-auth/google/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ access_token: response.credential })
@@ -336,7 +336,7 @@ if (facebookBtn) {
       if (response.authResponse) {
         const accessToken = response.authResponse.accessToken;
         // Send the token to your backend
-        const res = await fetch('http://127.0.0.1:8000/dj-rest-auth/facebook/', {
+        const res = await fetch(`${window.API_BASE_URL}dj-rest-auth/facebook/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ access_token: accessToken })
