@@ -261,47 +261,47 @@ function initializeCartButtons() {
   document.addEventListener('click', function(e) {
     console.log('Click detected on:', e.target);
     
-    if (e.target.classList.contains('add-cart-btn')) {
-      console.log('Service button clicked!');
-      
-      // Check if user is logged in
-      if (!isUserLoggedIn()) {
-        console.log('User not logged in, showing login prompt');
-        console.log('showToast function exists:', typeof window.showToast);
-        if (window.showToast) {
-          window.showToast('Please log in to add items to cart.');
-        } else {
-          console.error('showToast function not found!');
-          alert('Please log in to add items to cart.');
-        }
-        return;
-      }
-      
-      const serviceId = e.target.getAttribute('data-service-id');
-      const serviceName = e.target.getAttribute('data-service-name');
-      const servicePrice = parseFloat(e.target.getAttribute('data-service-price'));
-      
-      console.log('Service data:', { serviceId, serviceName, servicePrice });
-      
-      if (serviceId && serviceName && !isNaN(servicePrice)) {
-        const serviceData = {
-          id: serviceId,
-          name: serviceName,
-          price: servicePrice,
-          description: e.target.closest('.service-row').querySelector('.service-desc').textContent
-        };
-        
-        console.log('Adding service to cart:', serviceData);
-        
-        if (typeof window.addToCart === 'function') {
-          window.addToCart('service', serviceData);
-        } else {
-          console.error('addToCart function not found! Shared cart system not loaded.');
-        }
-      } else {
-        console.error('Missing service data:', { serviceId, serviceName, servicePrice });
-      }
+if (e.target.classList.contains('add-cart-btn')) {
+  console.log('Service button clicked!');
+  
+  // Check if user is logged in
+  if (!isUserLoggedIn()) {
+    console.log('User not logged in, showing login prompt');
+    if (window.showToast) {
+      window.showToast('Please log in to add items to cart.');
+    } else {
+      alert('Please log in to add items to cart.');
     }
+    return;
+  }
+  
+  const serviceId = e.target.getAttribute('data-service-id');
+  const serviceName = e.target.getAttribute('data-service-name');
+  const servicePrice = parseFloat(e.target.getAttribute('data-service-price'));
+  
+  console.log('Service data:', { serviceId, serviceName, servicePrice });
+  
+  if (serviceId && serviceName && !isNaN(servicePrice)) {
+    const serviceData = {
+      id: serviceId,
+      name: serviceName,
+      price: servicePrice,
+      description: e.target.closest('.service-row').querySelector('.service-desc').textContent
+    };
+    
+    console.log('Adding service to cart:', serviceData);
+    
+    if (typeof window.addToCart === 'function') {
+      window.addToCart('service', serviceData);
+    } else {
+      console.error('addToCart function not found! Shared cart system not loaded.');
+      if (window.showToast) window.showToast('Cart system not loaded. Please refresh.');
+    }
+  } else {
+    console.error('Missing or invalid service data:', { serviceId, serviceName, servicePrice });
+    if (window.showToast) window.showToast('Service data missing. Please try again.');
+  }
+}
     
     if (e.target.classList.contains('add-btn')) {
       console.log('Add-on/Essential button clicked!');
