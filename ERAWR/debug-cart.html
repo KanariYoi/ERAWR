@@ -1,89 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart Debug | Kick N' Klean</title>
-  <link rel="stylesheet" href="Main.css" />
-</head>
-<body>
-  <header>
-    <div class="logo">
-      <img src="./images/Icon - Final.png" alt="Kick N' Klean Logo" />
-    </div>
-    <nav>
-      <a href="Main.html" class="home-link">Home</a>
-      <a href="Services.html" class="services-link">Services</a>
-      <a href="faqs.html" class="faqs-link">FAQs</a>
-      <a href="about.html" class="about-link">About Us</a>
-    </nav>
-    <div class="header-icons">
-      <a href="#" class="cart-icon">
-        <img src="./images/cart.png" alt="Cart" />
-      </a>
-      <a href="#" class="menu-icon">
-        <img src="./images/icon.png" alt="Menu" />
-      </a>
-      <a href="#" class="user-icon" id="user-icon">
-        <img src="./images/user.PNG" alt="User" />
-      </a>
-      <span id="user-info" style="margin-left: 8px"></span>
-    </div>
-  </header>
-  <div class="header-spacer"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Debug | Kick N' Klean</title>
+    <link rel="stylesheet" href="Main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./images/Icon - Final.png" alt="Kick N' Klean Logo" />
+      </div>
+      <nav>
+        <a href="Main.html" class="home-link">Home</a>
+        <a href="Services.html" class="services-link">Services</a>
+        <a href="faqs.html" class="faqs-link">FAQs</a>
+        <a href="about.html" class="about-link">About Us</a>
+      </nav>
+      <div class="header-icons">
+        <a href="#" class="cart-icon">
+          <img src="./images/cart.png" alt="Cart" />
+        </a>
+        <a href="#" class="menu-icon">
+          <img src="./images/icon.png" alt="Menu" />
+        </a>
+        <a href="#" class="user-icon" id="user-icon">
+          <img src="./images/user.PNG" alt="User" />
+        </a>
+        <span id="user-info" style="margin-left: 8px"></span>
+      </div>
+    </header>
+    <div class="header-spacer"></div>
 
-  <main class="main-content">
-    <div style="padding: 40px; text-align: center;">
-      <h1>Cart Debug Page</h1>
-      <p>This page helps debug cart functionality issues.</p>
-      
-      <div style="margin: 40px 0;">
-        <h2>Current Status</h2>
-        <div id="debug-status" style="background: #f5f5f5; padding: 20px; border-radius: 10px; text-align: left; max-width: 800px; margin: 0 auto;">
-          Loading...
+    <main class="main-content">
+      <div style="padding: 40px; text-align: center">
+        <h1>Cart Debug Page</h1>
+        <p>This page helps debug cart functionality issues.</p>
+
+        <div style="margin: 40px 0">
+          <h2>Current Status</h2>
+          <div
+            id="debug-status"
+            style="
+              background: #f5f5f5;
+              padding: 20px;
+              border-radius: 10px;
+              text-align: left;
+              max-width: 800px;
+              margin: 0 auto;
+            "
+          >
+            Loading...
+          </div>
+        </div>
+
+        <div style="margin: 40px 0">
+          <h2>Debug Actions</h2>
+          <button
+            onclick="fixCart()"
+            style="
+              margin: 10px;
+              padding: 10px 20px;
+              background: #0066cc;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            "
+          >
+            Fix Cart System
+          </button>
+          <button
+            onclick="testAddItem()"
+            style="
+              margin: 10px;
+              padding: 10px 20px;
+              background: #232323;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            "
+          >
+            Test Add Item
+          </button>
+          <button
+            onclick="testOpenCart()"
+            style="
+              margin: 10px;
+              padding: 10px 20px;
+              background: #232323;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            "
+          >
+            Test Open Cart
+          </button>
         </div>
       </div>
-      
-      <div style="margin: 40px 0;">
-        <h2>Debug Actions</h2>
-        <button onclick="fixCart()" style="margin: 10px; padding: 10px 20px; background: #0066cc; color: white; border: none; border-radius: 5px; cursor: pointer;">
-          Fix Cart System
-        </button>
-        <button onclick="testAddItem()" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; border: none; border-radius: 5px; cursor: pointer;">
-          Test Add Item
-        </button>
-        <button onclick="testOpenCart()" style="margin: 10px; padding: 10px 20px; background: #232323; color: white; border: none; border-radius: 5px; cursor: pointer;">
-          Test Open Cart
-        </button>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <script src="shared-cart.js"></script>
-  <script>
-    function updateDebugStatus() {
-      const statusDiv = document.getElementById('debug-status');
-      
-      const accessToken = localStorage.getItem('access');
-      const userId = localStorage.getItem('current_user_id');
-      const refreshToken = localStorage.getItem('refresh');
-      
-      const isLoggedIn = window.isUserLoggedIn ? window.isUserLoggedIn() : false;
-      const cartKey = window.getCartKey ? window.getCartKey() : null;
-      const cart = window.getCart ? window.getCart() : { services: [], addons: [] };
-      
-      let status = `
+    <script src="config.js"></script>
+    <script src="shared-cart.js"></script>
+    <script>
+      function updateDebugStatus() {
+        const statusDiv = document.getElementById("debug-status");
+
+        const accessToken = localStorage.getItem("access");
+        const userId = localStorage.getItem("current_user_id");
+        const refreshToken = localStorage.getItem("refresh");
+
+        const isLoggedIn = window.isUserLoggedIn
+          ? window.isUserLoggedIn()
+          : false;
+        const cartKey = window.getCartKey ? window.getCartKey() : null;
+        const cart = window.getCart
+          ? window.getCart()
+          : { services: [], addons: [] };
+
+        let status = `
         <strong>Authentication:</strong><br>
-        - Access Token: ${accessToken ? 'Present' : 'Missing'}<br>
-        - Refresh Token: ${refreshToken ? 'Present' : 'Missing'}<br>
-        - User ID: ${userId || 'Missing'}<br>
-        - Is Logged In (Cart): ${isLoggedIn ? 'Yes' : 'No'}<br>
+        - Access Token: ${accessToken ? "Present" : "Missing"}<br>
+        - Refresh Token: ${refreshToken ? "Present" : "Missing"}<br>
+        - User ID: ${userId || "Missing"}<br>
+        - Is Logged In (Cart): ${isLoggedIn ? "Yes" : "No"}<br>
         <br>
         <strong>Cart System:</strong><br>
-        - Cart Key: ${cartKey || 'None'}<br>
-        - Cart Functions Available: ${window.addToCart ? 'Yes' : 'No'}<br>
-        - Cart Modal Available: ${document.getElementById('cartModal') ? 'Yes' : 'No'}<br>
-        - Cart Badge Available: ${document.querySelector('.cart-badge') ? 'Yes' : 'No'}<br>
+        - Cart Key: ${cartKey || "None"}<br>
+        - Cart Functions Available: ${window.addToCart ? "Yes" : "No"}<br>
+        - Cart Modal Available: ${
+          document.getElementById("cartModal") ? "Yes" : "No"
+        }<br>
+        - Cart Badge Available: ${
+          document.querySelector(".cart-badge") ? "Yes" : "No"
+        }<br>
         <br>
         <strong>Cart Contents:</strong><br>
         - Services: ${cart.services.length}<br>
@@ -93,62 +145,62 @@
         <strong>Debug Info:</strong><br>
         - Page URL: ${window.location.href}<br>
         - User Agent: ${navigator.userAgent}<br>
-        - LocalStorage Keys: ${Object.keys(localStorage).join(', ')}<br>
+        - LocalStorage Keys: ${Object.keys(localStorage).join(", ")}<br>
       `;
-      
-      statusDiv.innerHTML = status;
-    }
-    
-    function fixCart() {
-      const token = localStorage.getItem('access');
-      if (token && !localStorage.getItem('current_user_id')) {
-        const fallbackUserId = 'user_' + Date.now();
-        localStorage.setItem('current_user_id', fallbackUserId);
-        
-        if (typeof window.handleUserLogin === 'function') {
-          window.handleUserLogin(fallbackUserId);
+
+        statusDiv.innerHTML = status;
+      }
+
+      function fixCart() {
+        const token = localStorage.getItem("access");
+        if (token && !localStorage.getItem("current_user_id")) {
+          const fallbackUserId = "user_" + Date.now();
+          localStorage.setItem("current_user_id", fallbackUserId);
+
+          if (typeof window.handleUserLogin === "function") {
+            window.handleUserLogin(fallbackUserId);
+          }
+
+          if (typeof window.updateCartBadge === "function") {
+            window.updateCartBadge();
+          }
+
+          alert("Cart system fixed! User ID set to: " + fallbackUserId);
+          updateDebugStatus();
+        } else {
+          alert("No access token found or user ID already set.");
         }
-        
-        if (typeof window.updateCartBadge === 'function') {
-          window.updateCartBadge();
+      }
+
+      function testAddItem() {
+        if (typeof window.addToCart === "function") {
+          window.addToCart("service", {
+            id: "debug-service",
+            name: "Debug Service",
+            price: 100,
+            description: "Test service for debugging",
+          });
+          alert("Item added to cart!");
+          updateDebugStatus();
+        } else {
+          alert("addToCart function not available!");
         }
-        
-        alert('Cart system fixed! User ID set to: ' + fallbackUserId);
+      }
+
+      function testOpenCart() {
+        if (typeof window.openCartModal === "function") {
+          window.openCartModal();
+          alert("Cart modal opened!");
+        } else {
+          alert("openCartModal function not available!");
+        }
+      }
+
+      // Update status on page load and every 3 seconds
+      document.addEventListener("DOMContentLoaded", function () {
         updateDebugStatus();
-      } else {
-        alert('No access token found or user ID already set.');
-      }
-    }
-    
-    function testAddItem() {
-      if (typeof window.addToCart === 'function') {
-        window.addToCart('service', {
-          id: 'debug-service',
-          name: 'Debug Service',
-          price: 100,
-          description: 'Test service for debugging'
-        });
-        alert('Item added to cart!');
-        updateDebugStatus();
-      } else {
-        alert('addToCart function not available!');
-      }
-    }
-    
-    function testOpenCart() {
-      if (typeof window.openCartModal === 'function') {
-        window.openCartModal();
-        alert('Cart modal opened!');
-      } else {
-        alert('openCartModal function not available!');
-      }
-    }
-    
-    // Update status on page load and every 3 seconds
-    document.addEventListener('DOMContentLoaded', function() {
-      updateDebugStatus();
-      setInterval(updateDebugStatus, 3000);
-    });
-  </script>
-</body>
-</html> 
+        setInterval(updateDebugStatus, 3000);
+      });
+    </script>
+  </body>
+</html>
