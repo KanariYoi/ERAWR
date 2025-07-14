@@ -1,5 +1,17 @@
 // IMPORTANT: Make sure <script src="shared-cart.js"></script> is loaded BEFORE this script in your HTML!
 
+// Helper: fetch with Authorization header if logged in
+function authFetch(url, options = {}) {
+  const token = localStorage.getItem('access');
+  if (token) {
+    options.headers = {
+      ...(options.headers || {}),
+      'Authorization': 'Bearer ' + token,
+    };
+  }
+  return fetch(url, options);
+}
+
 // Show username in header if logged in
 function showUserUIOnHeader() {
   const userInfo = document.getElementById("user-info");
@@ -72,7 +84,7 @@ function isUserLoggedIn() {
 // Fetch and render services dynamically
 async function fetchAndRenderServices() {
   try {
-    const response = await fetch(`${window.API_BASE_URL}/api/services/`);
+    const response = await authFetch(`${window.API_BASE_URL}/api/services/`);
     if (!response.ok) throw new Error(`Failed to fetch services: ${response.status} ${response.statusText}`);
     const services = await response.json();
     const servicesList = document.querySelector('.services-list');
@@ -106,7 +118,6 @@ async function fetchAndRenderServices() {
         </button>
       `;
       servicesList.appendChild(serviceRow);
-      // Divider after third service if more than 3
       if (index === 2 && services.length > 3) {
         const divider = document.createElement('hr');
         divider.className = 'service-divider';
@@ -122,7 +133,7 @@ async function fetchAndRenderServices() {
 // Fetch and render add-ons dynamically
 async function fetchAndRenderAddons() {
   try {
-    const response = await fetch(`${window.API_BASE_URL}/api/addons/`);
+    const response = await authFetch(`${window.API_BASE_URL}/api/addons/`);
     if (!response.ok) throw new Error('Failed to fetch add-ons');
     const addons = await response.json();
     const addonsList = document.querySelector('.addons-list');
@@ -151,7 +162,7 @@ async function fetchAndRenderAddons() {
 // Fetch and render essentials dynamically (using bundles data)
 async function fetchAndRenderEssentials() {
   try {
-    const response = await fetch(`${window.API_BASE_URL}/api/bundles/`);
+    const response = await authFetch(`${window.API_BASE_URL}/api/bundles/`);
     if (!response.ok) throw new Error('Failed to fetch bundles');
     const bundles = await response.json();
     const essentialsList = document.querySelector('.essentials-list');
